@@ -11,14 +11,18 @@
 
      <h:body>
      
-         <h1>Module Results for <h:outputLabel value="#{moduleFormation.name}" /> </h1>
-         <!-->p:spinner /-->
+         <h1>Module Results for : <h:outputLabel value="#{moduleFormation.name}" /> </h1>
+         
+         
          <em><h:outputLabel value="#{monApplication.slogan}" /></em>
          
          Enter a module name, and choose search
          <h:form >
              <h:inputText value="#{moduleFormation.name}" />
-             <h:commandButton action="search" value="Submit" />
+             <!--  ><h:commandButton action="search" value="Submit" />-->
+             <!-- action=#{searchFormation.execute} is now a managed bean -->
+             <h:commandButton action="#{searchFormation.execute}" value="Submit" />
+             
          </h:form>
          
          
