@@ -10,8 +10,18 @@
      </h:head>
 
      <h:body>
-         <h1>Hello! My name is...What's yours?</h1>
+     
+         <h1>Hello! My name is...What's yours ? </h1>
          <!-->p:spinner /-->
          <em><h:outputLabel value="#{monApplication.slogan}" /></em>
+         
+         Enter a module name, and choose search
+         <h:form >
+             <h:inputText value="#{moduleFormation.name}" />
+             <h:commandButton action="search" value="Submit" />
+         </h:form>
+         
+         
+         <h:link value="Contact Us" outcome="contactUs" />
      </h:body>
 </html>
