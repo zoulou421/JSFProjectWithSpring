@@ -4,6 +4,17 @@
   <artifactId>PlantsPlacesJSFTest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
+  <repositories>
+    <repository>
+        <id>prime-repo</id>
+        <name>PrimeFaces Maven Repository</name>
+        <url>http://repository.primefaces.org</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+  
+  
   <name>PlantsPlacesJSFTest</name>
   <description>JSF dynamic project into a maven</description>
   <build>
@@ -44,6 +55,12 @@
 			<artifactId>primefaces</artifactId>
 			<version>4.0</version>
 		</dependency>
+
+        <dependency>
+          <groupId>org.primefaces.themes</groupId>
+           <artifactId>all-themes</artifactId>
+          <version>1.0.10</version>
+        </dependency>
 
 		<dependency>
          <groupId>org.primefaces.extensions</groupId>

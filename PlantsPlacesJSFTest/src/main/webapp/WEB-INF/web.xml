@@ -28,6 +28,12 @@
     <param-value>resources.application</param-value>
   </context-param>
   
+  
+    <context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>le-frog</param-value>
+	</context-param>
+  
   <!-- Add Support for Spring -->
    <listener> 
       <listener-class>
