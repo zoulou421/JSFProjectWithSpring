@@ -1,5 +1,8 @@
 package com.formationkilo.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -31,4 +34,27 @@ public class SearchFormation {
 			return "noresults";
 		}
 	}
+	
+	public List<ModuleFormation>completeFormation(String query){
+		ArrayList<ModuleFormation>allModuleFormations=new ArrayList<ModuleFormation>();
+		//create ModuleFormation and add them to the collection.
+		ModuleFormation javamodule=new ModuleFormation();
+		javamodule.setName("JavaServer Faces ");
+		allModuleFormations.add(javamodule);
+		
+		ModuleFormation javasspboot=new ModuleFormation();
+		javasspboot.setName("Java Spring boot ");
+		allModuleFormations.add(javasspboot);
+		
+		ModuleFormation javasstructs=new ModuleFormation();
+		javasstructs.setName("Java Structs 2 ");
+		allModuleFormations.add(javasstructs);
+		
+		ModuleFormation javaspringmvc=new ModuleFormation();
+		javaspringmvc.setName("Java SpringMVC ");
+		allModuleFormations.add(javaspringmvc);
+		
+		return allModuleFormations;
+	}
+	
 }

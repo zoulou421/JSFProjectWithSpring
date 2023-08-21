@@ -19,8 +19,8 @@
          
               <p>Entrer nom de votre module,et cliquer sur search</p>
               <h:form >
-                <p:inputText value="#{moduleFormation.name}" />
-                <p:commandButton action="search" value="Search" />
+                <p:autoComplete value="#{moduleFormation.name}" completeMethod="#{searchFormation.completeFormation}" />
+                <p:commandButton actionListener="search" value="Search" />
               </h:form>
                
              <p>
