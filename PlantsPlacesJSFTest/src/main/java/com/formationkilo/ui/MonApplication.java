@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Scope;
 @Scope("session")
 public class MonApplication {
 
-	private String slogan="Apprendre apprendre du JSF avec  formationkilo";
+	private String slogan="Apprendre du JSF avec  Java Green-House";
 
 	public String getSlogan() {
 		return slogan;

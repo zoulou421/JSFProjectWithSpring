@@ -8,19 +8,21 @@
 
      <h:body>
          <ui:composition template="template.xhtml">
-          <ui:define name="title">formationkilo.com promotion</ui:define>
-          <ui:define name="top">Formationkilo.com promoting a e-learning plateforme</ui:define>
+          <ui:define name="title">Java Green-House</ui:define>
+          <ui:define name="top">Bienvenue sur Java Green-House</ui:define>
            <ui:define name="content">
-             <h1>Hello! My name is...What's yours ? </h1>
+              <h1>Bienvenue sur Java Green-House Software</h1>
+               <p>Une plateforme d'excellence pour apprendre à developper des applications web en java.
+               </p> 
              
              <em><h:outputLabel value="#{monApplication.slogan}" /></em>
          
-              Enter a module name, and choose search
+              <p>Entrer nom de votre module,et cliquer sur search</p>
               <h:form >
                 <h:inputText value="#{moduleFormation.name}" />
-                <h:commandButton action="search" value="Submit" />
+                <h:commandButton action="search" value="Search" />
               </h:form>
-         
+               
          
              <h:link value="Contact Us" outcome="contactUs" />
              
