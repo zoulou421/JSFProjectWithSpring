@@ -13,13 +13,13 @@ import com.formationkilo.dto.ModuleFormation;
 public class ModuleFormationServiceImpl implements IModuleFormationService {
 
 	@Inject
-	IModuleFormationDAO moduleFormationDAO;
+	IModuleFormationDAO modFormationDAO;
 	private List<ModuleFormation>allModuleFormations;
 	@Override
 	public List<ModuleFormation> filterModuleFormation(String filter) {
 		//List<ModuleFormation>allModuleFormations= moduleFormationDAO.fetchModuleFormations();
 		if(allModuleFormations ==null) {
-			allModuleFormations=moduleFormationDAO.fetchModuleFormations();
+			allModuleFormations=modFormationDAO.fetchModuleFormations();
 		}
 		//the collection we are returning
 		List<ModuleFormation> returnModuleFormations = new ArrayList<ModuleFormation>();
@@ -33,7 +33,6 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 				returnModuleFormations.add(mf);
 			}
 		}
-		// TODO Auto-generated method stub
 		return returnModuleFormations;
 	}
 

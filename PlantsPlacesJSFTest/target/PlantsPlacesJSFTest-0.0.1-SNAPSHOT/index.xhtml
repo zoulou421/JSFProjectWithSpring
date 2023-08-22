@@ -3,25 +3,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
-
-     <h:head>
-        <title>Facelets Hello Greetings!</title>
-     </h:head>
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
 
      <h:body>
-     
-         <h1>Hello! My name is...What's yours ? </h1>
-         <!-->p:spinner /-->
-         <em><h:outputLabel value="#{monApplication.slogan}" /></em>
+         <ui:composition template="template.xhtml">
+          <ui:define name="title">Java Green-House</ui:define>
+          <ui:define name="top">Bienvenue sur Java Green-House</ui:define>
+           <ui:define name="content">
+              <h1>Bienvenue sur Java Green-House Software</h1>
+               <p>Une plateforme d'excellence pour apprendre à developper des applications web en java.
+               </p> 
+             
+             <em><h:outputLabel value="#{monApplication.slogan}" /></em>
          
-         Enter a module name, and choose search
-         <h:form >
-             <h:inputText value="#{moduleFormation.name}" />
-             <h:commandButton action="search" value="Submit" />
-         </h:form>
-         
-         
-         <h:link value="Contact Us" outcome="contactUs" />
+              <p>Entrer nom de votre module,et cliquer sur search</p>
+              <h:form >
+                <p:autoComplete value="#{moduleFormation.name}" completeMethod="#{searchFormation.completeFormation}" />
+                <p:commandButton actionListener="search" value="Search" />
+              </h:form>
+               
+             <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+               eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+               Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+               laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+               irure dolor in reprehenderit in voluptate velit esse cillum 
+               dolore eu fugiat nulla pariatur.
+               Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+             
+             </p>
+             
+             
+             <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+               eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+               Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+               laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+               irure dolor in reprehenderit in voluptate velit esse cillum 
+               dolore eu fugiat nulla pariatur.
+               Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+             
+             </p>
+             
+             
+             <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+               eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+               Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+               laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+               irure dolor in reprehenderit in voluptate velit esse cillum 
+               dolore eu fugiat nulla pariatur.
+               Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+             
+             </p>
+             <h:link value="Contact Us" outcome="contactUs" />
+             
+           </ui:define>
+         </ui:composition>
      </h:body>
 </html>

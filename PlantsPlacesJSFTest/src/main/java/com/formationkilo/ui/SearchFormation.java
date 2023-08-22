@@ -10,6 +10,7 @@ import javax.inject.Named;
 import org.springframework.context.annotation.Scope;
 
 import com.formationkilo.dto.ModuleFormation;
+import com.formationkilo.service.IModuleFormationService;
 
 @Named
 @ManagedBean
@@ -18,6 +19,10 @@ public class SearchFormation {
 
 	@Inject
 	private ModuleFormation moduleFormation;
+	
+	@Inject
+	private IModuleFormationService moduleFormationService;
+	
 	
 	public ModuleFormation getModuleFormation() {
 		return moduleFormation;
@@ -36,9 +41,9 @@ public class SearchFormation {
 	}
 	
 	public List<ModuleFormation>completeFormation(String query){
-		ArrayList<ModuleFormation>allModuleFormations=new ArrayList<ModuleFormation>();
+		//ArrayList<ModuleFormation>allModuleFormations=new ArrayList<ModuleFormation>();
 		//create ModuleFormation and add them to the collection.
-		ModuleFormation javamodule=new ModuleFormation();
+		/*ModuleFormation javamodule=new ModuleFormation();
 		javamodule.setName("JavaServer Faces ");
 		allModuleFormations.add(javamodule);
 		
@@ -54,7 +59,9 @@ public class SearchFormation {
 		javaspringmvc.setName("Java SpringMVC ");
 		allModuleFormations.add(javaspringmvc);
 		
-		return allModuleFormations;
+		return allModuleFormations;*/
+		return moduleFormationService.filterModuleFormation(query)	;	
+		
 	}
 	
 }
