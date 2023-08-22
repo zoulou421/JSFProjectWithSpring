@@ -14,6 +14,18 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 
 	@Inject
 	IModuleFormationDAO modFormationDAO;
+	public IModuleFormationDAO getModFormationDAO() {
+		return modFormationDAO;
+	}
+	public void setModFormationDAO(IModuleFormationDAO modFormationDAO) {
+		this.modFormationDAO = modFormationDAO;
+	}
+	public List<ModuleFormation> getAllModuleFormations() {
+		return allModuleFormations;
+	}
+	public void setAllModuleFormations(List<ModuleFormation> allModuleFormations) {
+		this.allModuleFormations = allModuleFormations;
+	}
 	private List<ModuleFormation>allModuleFormations;
 	@Override
 	public List<ModuleFormation> filterModuleFormation(String filter) {
