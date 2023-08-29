@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+     <h:body>
+         <ui:composition template="template.xhtml">
+          <ui:define name="title">Java Green-House</ui:define>
+          <ui:define name="top">myapp.com-Ajouter  un nouveau Module Formation</ui:define>
+           <ui:define name="content">
+              <h1>Ajouter  un nouveau Module Formation</h1>
+             <em><h:outputLabel value="#{monApplication.slogan}" /></em>
+         
+              <p>Entrer nom de votre module,et cliquer sur search</p>
+              <h:form >
+               
+                <p:commandButton actionListener="search" value="Add Formation" />
+              </h:form>
+               
+             
+           </ui:define>
+         </ui:composition>
+     </h:body>
+</html>
