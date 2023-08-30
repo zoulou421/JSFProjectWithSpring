@@ -16,4 +16,11 @@ public interface IModuleFormationService {
     * @return a collection of matching  ModuleFormation
     */
    public List<ModuleFormation> filterModuleFormation(String filter);
+   
+   /**
+    * save a moduleFormation and perform a validation check
+    * @param moduleFormation we are persisting
+    * @throws Exception if unable to save
+    */
+   public void save(ModuleFormation moduleFormation) throws Exception;
 }

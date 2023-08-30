@@ -12,12 +12,15 @@
           <ui:define name="top">myapp.com-Ajouter  un nouveau Module Formation</ui:define>
            <ui:define name="content">
               <h1>Ajouter  un nouveau Module Formation</h1>
-             <em><h:outputLabel value="#{monApplication.slogan}" /></em>
          
               <p>Entrer nom de votre module,et cliquer sur search</p>
               <h:form >
-               
-                <p:commandButton actionListener="search" value="Add Formation" />
+                 <h:outputLabel value="Name" /><p:inputText value="#{moduleFormation.name}" /><br />
+                 <h:outputLabel value="Type" /><p:inputText value="#{moduleFormation.type}" /><br />
+                 <h:outputLabel value="Langage" /><p:inputText value="#{moduleFormation.langage}" /><br />
+                 <h:outputLabel value="Description" /><p:inputText value="#{moduleFormation.description}" /><br />
+                 <h:outputLabel value="Lieu" /><p:inputText value="#{moduleFormation.lieu}" /><br />
+                 <p:commandButton actionListener="#{addModuleFormation.execute}" value="Add Formation" /><br />
               </h:form>
                
              

@@ -47,6 +47,12 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		}
 		return returnModuleFormations;
 	}
+	
+	public void save(ModuleFormation moduleFormation) throws Exception {
+		
+			modFormationDAO.insert(moduleFormation);
+		
+	}
 
 }
  
