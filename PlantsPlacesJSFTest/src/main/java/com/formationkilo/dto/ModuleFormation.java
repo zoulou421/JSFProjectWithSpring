@@ -1,5 +1,7 @@
 package com.formationkilo.dto;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
@@ -8,8 +10,10 @@ import org.springframework.context.annotation.Scope;
 @Named
 @ManagedBean
 @Scope("session")
-public class ModuleFormation {
+public class ModuleFormation implements Serializable {
 
+  private static final long serialVersionUID = 1L;
+  
   private String name;
   private String type;
   private String langage;

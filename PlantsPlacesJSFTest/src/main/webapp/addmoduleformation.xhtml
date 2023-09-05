@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+     <h:body>
+         <ui:composition template="template.xhtml">
+          <ui:define name="title">Java Green-House</ui:define>
+          <ui:define name="top">myapp.com-Ajouter  un nouveau Module Formation</ui:define>
+           <ui:define name="content">
+             <h1>Add a New ModuleFormation</h1>
+		
+
+            Enter Module Formation Details
+           <h:form>
+			<p:growl id="growl" showDetail="true" sticky="true" />
+			<h:outputLabel value="Type"/><p:inputText value="#{moduleFormation.type}"/><br />
+			<h:outputLabel value="Langage"/><p:inputText value="#{moduleFormation.langage}"/><br />
+			<h:outputLabel value="Description"/><p:inputText value="#{moduleFormation.description}"/><br />
+			<h:outputLabel value="Lieu"/><p:inputText value="#{moduleFormation.lieu}"/><br />
+			<p:commandButton value="Submit" actionListener="#{addFormationModule.execute}" update="growl"/><br />
+
+		</h:form>
+		
+		
+
+           </ui:define>
+         </ui:composition>
+     </h:body>
+</html>

@@ -1,6 +1,8 @@
 package com.formationkilo.ui;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -46,6 +48,15 @@ public class AddFormationModule {
 	 String returnValue="success";
 	 try {
 		moduleFormationService.save(moduleFormation);
+		//get faces context
+		FacesContext currentInstance=FacesContext.getCurrentInstance();
+		
+		//what is the message that we want to show ?
+		FacesMessage fm= new FacesMessage(FacesMessage.SEVERITY_INFO, "saved", "Module Formation saved");
+		
+		//display the message
+		currentInstance.addMessage(null, fm);
+		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
