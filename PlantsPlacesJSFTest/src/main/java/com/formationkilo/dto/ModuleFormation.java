@@ -19,7 +19,15 @@ public class ModuleFormation implements Serializable {
   private String langage;
   private String description;
   private String lieu;
+  private int guid;
+  
 
+  public int getGuid() {
+	return guid;
+  }
+  public void setGuid(int guid) {
+	this.guid = guid;
+  }
   public String getName() {
 	return name;
   }
