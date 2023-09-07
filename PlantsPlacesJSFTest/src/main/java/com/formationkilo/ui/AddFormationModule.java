@@ -46,10 +46,12 @@ public class AddFormationModule {
 
     public String execute() {
 	 String returnValue="success";
+	   //get faces context
+	  FacesContext currentInstance=FacesContext.getCurrentInstance();
 	 try {
 		moduleFormationService.save(moduleFormation);
 		//get faces context
-		FacesContext currentInstance=FacesContext.getCurrentInstance();
+		//FacesContext currentInstance=FacesContext.getCurrentInstance();
 		
 		//what is the message that we want to show ?
 		FacesMessage fm= new FacesMessage(FacesMessage.SEVERITY_INFO, "saved", "Module Formation saved");
@@ -61,6 +63,10 @@ public class AddFormationModule {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		returnValue="fail";
+		//what is the message that we want to show ?
+		FacesMessage fm= new FacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to save", "Module Formation not saved");
+		//display the message
+		currentInstance.addMessage(null, fm);
 	}
 	 return returnValue;
    }

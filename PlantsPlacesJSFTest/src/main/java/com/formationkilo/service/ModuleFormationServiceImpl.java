@@ -50,6 +50,9 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	
 	public void save(ModuleFormation moduleFormation) throws Exception {
 		
+		   if(moduleFormation.getType()==null || moduleFormation.getType().isEmpty()) {
+			   throw new Exception("Type est requis");
+		   }
 			modFormationDAO.insert(moduleFormation);
 		
 	}
