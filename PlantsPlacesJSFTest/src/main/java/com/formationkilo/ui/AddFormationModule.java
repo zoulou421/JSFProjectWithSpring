@@ -6,6 +6,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 
 import com.formationkilo.dto.ModuleFormation;
@@ -16,6 +17,7 @@ import com.formationkilo.service.IModuleFormationService;
 @Scope("session")
 public class AddFormationModule {
 	
+	final static Logger logger=Logger.getLogger(AddFormationModule.class);
 	
 	@Inject
 	private ModuleFormation moduleFormation;
@@ -45,11 +47,13 @@ public class AddFormationModule {
 
 
     public String execute() {
+    	logger.info("Entering the Execute method");	
 	 String returnValue="success";
 	   //get faces context
 	  FacesContext currentInstance=FacesContext.getCurrentInstance();
 	 try {
 		moduleFormationService.save(moduleFormation);
+		logger.info("Save successful"+moduleFormation.toString());
 		//get faces context
 		//FacesContext currentInstance=FacesContext.getCurrentInstance();
 		
@@ -61,6 +65,7 @@ public class AddFormationModule {
 		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
+		logger.error("Error while saving plant. Message:"+e.getMessage());
 		e.printStackTrace();
 		returnValue="fail";
 		//what is the message that we want to show ?

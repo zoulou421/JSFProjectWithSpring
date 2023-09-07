@@ -5,11 +5,14 @@ import java.util.List;
 
 import javax.inject.Named;
 
+import org.apache.log4j.Logger;
+
 import com.formationkilo.dto.ModuleFormation;
 
 @Named("moduleFormationImplDAO")
 public class ModuleFormationDAOStub implements IModuleFormationDAO {
 
+	static final Logger log = Logger.getLogger(ModuleFormationDAOStub.class);
 	@Override
 	public List<ModuleFormation> fetchModuleFormations() {
 		List<ModuleFormation>allModuleFormations=new ArrayList<ModuleFormation>();
@@ -67,6 +70,7 @@ public class ModuleFormationDAOStub implements IModuleFormationDAO {
 	@Override
 	public void insert(ModuleFormation mf) throws Exception {
 		// TODO Auto-generated method stub
+		log.warn("Inserting into stub; this is NOT persist the item");
 		
 	}
 
