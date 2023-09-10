@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 
 import com.formationkilo.dto.ModuleFormation;
 
-@Named("moduleFormationImplDAO")
+@Named("moduleFormationDAOStub")
 public class ModuleFormationDAOStub implements IModuleFormationDAO {
 
 	static final Logger log = Logger.getLogger(ModuleFormationDAOStub.class);

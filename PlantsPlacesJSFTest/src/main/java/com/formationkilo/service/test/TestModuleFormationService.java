@@ -52,7 +52,7 @@ public class TestModuleFormationService extends TestCase{
 	   when(moduleFormationDAO.fetchModuleFormations()).thenReturn(moduleFormationList);
 	   
 	   //associate the mock object with the object we are testing
-	   moduleFormationService.setModFormationDAO(moduleFormationDAO);
+	   //moduleFormationService.setModFormationDAO(moduleFormationDAO);
 	}
 	
 	   public List<ModuleFormation> contructModuleFormationsList() {

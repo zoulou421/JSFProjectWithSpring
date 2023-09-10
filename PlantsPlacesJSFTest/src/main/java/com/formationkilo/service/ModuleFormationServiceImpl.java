@@ -13,12 +13,13 @@ import com.formationkilo.dto.ModuleFormation;
 public class ModuleFormationServiceImpl implements IModuleFormationService {
 
 	@Inject
-	IModuleFormationDAO modFormationDAO;
-	public IModuleFormationDAO getModFormationDAO() {
-		return modFormationDAO;
+	IModuleFormationDAO moduleFormationDAOStub;
+	
+	public IModuleFormationDAO getModuleFormationDAOStub() {
+		return moduleFormationDAOStub;
 	}
-	public void setModFormationDAO(IModuleFormationDAO modFormationDAO) {
-		this.modFormationDAO = modFormationDAO;
+	public void setModuleFormationDAOStub(IModuleFormationDAO moduleFormationDAOStub) {
+		this.moduleFormationDAOStub = moduleFormationDAOStub;
 	}
 	public List<ModuleFormation> getAllModuleFormations() {
 		return allModuleFormations;
@@ -31,7 +32,7 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	public List<ModuleFormation> filterModuleFormation(String filter) {
 		//List<ModuleFormation>allModuleFormations= moduleFormationDAO.fetchModuleFormations();
 		if(allModuleFormations ==null) {
-			allModuleFormations=modFormationDAO.fetchModuleFormations();
+			allModuleFormations=moduleFormationDAOStub.fetchModuleFormations();
 		}
 		//the collection we are returning
 		List<ModuleFormation> returnModuleFormations = new ArrayList<ModuleFormation>();
@@ -53,7 +54,7 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		   if(moduleFormation.getType()==null || moduleFormation.getType().isEmpty()) {
 			   throw new Exception("Type est requis");
 		   }
-			modFormationDAO.insert(moduleFormation);
+		   moduleFormationDAOStub.insert(moduleFormation);
 		
 	}
 
