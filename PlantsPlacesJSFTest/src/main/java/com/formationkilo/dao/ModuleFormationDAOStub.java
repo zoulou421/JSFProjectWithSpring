@@ -86,4 +86,10 @@ public class ModuleFormationDAOStub implements IModuleFormationDAO {
 		
 	}
 
+	@Override
+	public List<ModuleFormation> fetchModuleFormations(ModuleFormation moduleFormation) {
+		// TODO Auto-generated method stub
+		return new ArrayList<ModuleFormation>();
+	}
+
 }
