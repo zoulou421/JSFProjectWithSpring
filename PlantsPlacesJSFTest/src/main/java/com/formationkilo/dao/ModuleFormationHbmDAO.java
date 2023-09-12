@@ -14,9 +14,10 @@ public class ModuleFormationHbmDAO implements IModuleFormationDAO{
 	@Override
 	public List<ModuleFormation> fetchModuleFormations() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		// TODO Auto-generated method stub
-		
-		return null;
+		Query query = session.createQuery("from ModuleFormation");
+        List list= query.list();
+        List<ModuleFormation>list_moduleFormation= Collections.checkedList(list, ModuleFormation.class);
+        return list_moduleFormation;
 	}
 
 	@Override
