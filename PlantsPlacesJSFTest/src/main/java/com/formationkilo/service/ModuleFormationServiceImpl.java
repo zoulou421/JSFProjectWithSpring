@@ -57,6 +57,18 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		   moduleFormationDAOStub.insert(moduleFormation);
 		
 	}
+	/**
+	 * Return a list of ModuleFormation that match the given criteria search
+	 * @param moduleFormation a parameter that contains the search criteria
+	 * @return
+	 */
+	@Override
+	public List<ModuleFormation>fetchModuleFormation(ModuleFormation moduleFormation){
+		//List<ModuleFormation> results= new ArrayList<ModuleFormation>();
+		List<ModuleFormation> list_moduleFormation= moduleFormationDAOStub.fetchModuleFormations(moduleFormation);
+		return list_moduleFormation;
+		
+	}
 
 }
  

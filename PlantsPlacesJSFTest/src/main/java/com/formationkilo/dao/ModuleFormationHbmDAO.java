@@ -24,10 +24,11 @@ public class ModuleFormationHbmDAO implements IModuleFormationDAO{
 	public List<ModuleFormation> fetchModuleFormations(ModuleFormation moduleFormation) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		//create a query
-				Query query = session.createQuery("from ModuleFormation where lieu = :lieu");
+				//Query query = session.createQuery("from ModuleFormation where lieu = :lieu");
+		        Query query = session.createQuery("from ModuleFormation where lieu like :lieu");
 				//query.setParameter("lieu", "Java");
-				//query.setParameter("lieu", moduleFormation.getLieu());
-				query.setProperties(moduleFormation);
+				query.setParameter("lieu", "%" +moduleFormation.getLieu()+ "%");
+				//query.setProperties(moduleFormation);
 		       List list= query.list();
 		//return new ArrayList<ModuleFormation>();
 		        List<ModuleFormation>list_moduleFormation= Collections.checkedList(list, ModuleFormation.class);

@@ -12,13 +12,14 @@ import org.junit.Test;
 
 import com.formationkilo.dao.IModuleFormationDAO;
 import com.formationkilo.dto.ModuleFormation;
+import com.formationkilo.service.IModuleFormationService;
 import com.formationkilo.service.ModuleFormationServiceImpl;
 
 import junit.framework.TestCase;
 
 public class TestModuleFormationService extends TestCase{
 	
-	private ModuleFormationServiceImpl moduleFormationService;
+	private IModuleFormationService moduleFormationService;
 	private List<ModuleFormation> filterModuleFormations;
 	
 	@Test

@@ -23,7 +23,15 @@ public class SearchFormation {
 	@Inject
 	private IModuleFormationService moduleFormationService;
 	
-	
+	private List<ModuleFormation> collectionModuleFormation;
+	public List<ModuleFormation> getCollectionModuleFormation() {
+		return collectionModuleFormation;
+	}
+
+	public void setCollectionModuleFormation(List<ModuleFormation> collectionModuleFormation) {
+		this.collectionModuleFormation = collectionModuleFormation;
+	}
+
 	public ModuleFormation getModuleFormation() {
 		return moduleFormation;
 	}
@@ -31,10 +39,16 @@ public class SearchFormation {
 	public void setModuleFormation(ModuleFormation moduleFormation) {
 		this.moduleFormation = moduleFormation;
 	}
-
+    /**
+     * Handle button clicks from searches.
+     * @return the next navigation.
+     */
 	public String execute() {
-		if(moduleFormation!=null && moduleFormation.getName().equalsIgnoreCase("JavaEE")) {
-			return "search";
+		 collectionModuleFormation = moduleFormationService.fetchModuleFormation(moduleFormation);
+		
+		//if(moduleFormation!=null && moduleFormation.getName().equalsIgnoreCase("JavaEE")) {
+		if(collectionModuleFormation.size()>0) {
+		 return "search";
 		}else {
 			return "noresults";
 		}

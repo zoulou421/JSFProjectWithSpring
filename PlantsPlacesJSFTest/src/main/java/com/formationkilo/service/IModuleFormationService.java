@@ -23,4 +23,11 @@ public interface IModuleFormationService {
     * @throws Exception if unable to save
     */
    public void save(ModuleFormation moduleFormation) throws Exception;
+
+/**
+ * Return a list of ModuleFormation that match the given criteria search
+ * @param moduleFormation a parameter that contains the search criteria
+ * @return
+ */
+List<ModuleFormation> fetchModuleFormation(ModuleFormation moduleFormation);
 }
