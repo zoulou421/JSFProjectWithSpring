@@ -31,6 +31,7 @@
   
     <context-param>
 		<param-name>primefaces.THEME</param-name>
+		<!-- Add style le-frog//humanity//home//hot-sneaks//midnight//mint-choc //overcast//pepper-grinder -->
 		<param-value>le-frog</param-value>
 	</context-param>
   

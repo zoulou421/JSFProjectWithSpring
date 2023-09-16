@@ -18,13 +18,37 @@
          
          Enter a module name, and choose search
          <h:form >
-             <h:inputText value="#{moduleFormation.name}" />
              
-             <h:commandButton action="#{searchFormation.execute}" value="Submit" />
              
-         </h:form>
-         
-         
+       <div class="card">
+        <p:dataTable var="modulef" value="#{searchFormation.collectionModuleFormation}">
+            <p:column headerText="Name">
+                <h:outputText value="#{modulef.name}" />
+            </p:column>
+
+            <p:column headerText="Type">
+                <h:outputText value="#{modulef.type}" />
+            </p:column>
+
+            <p:column headerText="Langage">
+                <h:outputText value="#{modulef.langage}" />
+            </p:column>
+
+            <p:column headerText="Description">
+                <h:outputText value="#{modulef.description}" />
+            </p:column>
+            
+            <p:column headerText="Lieu">
+                <h:outputText value="#{modulef.lieu}" />
+            </p:column>
+        </p:dataTable>
+        
+         </div>
+        <h:inputText value="#{moduleFormation.name}" />
+             
+         <h:commandButton action="#{searchFormation.execute}" value="Submit" />
+       </h:form>
+   
          <h:link value="Contact Us" outcome="contactUs" />
      </h:body>
 </html>
