@@ -21,11 +21,16 @@
              
              
        <div class="card">
-        <p:dataTable var="modulef" value="#{searchFormation.collectionModuleFormation}">
-            <p:column headerText="Name">
-                <h:outputText value="#{modulef.name}" />
+        <p:dataTable id="showSearchModF" var="modulef" value="#{searchFormation.collectionModuleFormation}" selectionMode="single" rowKey="#{modulef.guid}" >
+        
+          <p:ajax event="rowSelect" listener="#{searchFormation.onRowSelect}" />
+          
+          <p:column headerText="ID">
+                <h:outputText value="#{modulef.guid}" />
             </p:column>
-
+            
+             
+              
             <p:column headerText="Type">
                 <h:outputText value="#{modulef.type}" />
             </p:column>

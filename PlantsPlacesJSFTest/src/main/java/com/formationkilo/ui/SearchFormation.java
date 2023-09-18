@@ -1,12 +1,16 @@
 package com.formationkilo.ui;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.event.SelectEvent;
 import org.springframework.context.annotation.Scope;
 
 import com.formationkilo.dto.ModuleFormation;
@@ -24,6 +28,10 @@ public class SearchFormation {
 	private IModuleFormationService moduleFormationService;
 	
 	private List<ModuleFormation> collectionModuleFormation;
+	
+	@Inject
+	private LieuVO lieuVO;
+	
 	public List<ModuleFormation> getCollectionModuleFormation() {
 		return collectionModuleFormation;
 	}
@@ -77,5 +85,19 @@ public class SearchFormation {
 		return moduleFormationService.filterModuleFormation(query)	;	
 		
 	}
+	
+	public void onRowSelect(SelectEvent event) {
+      // FacesMessage msg = new FacesMessage("ModuleFormation Selected", String.valueOf(((Object) event.getObject())));
+       // FacesContext.getCurrentInstance().addMessage(null, msg);
+		ModuleFormation modForOnRowSelect=((ModuleFormation) event.getObject());
+		//push the selected plant into LieuVO
+		lieuVO.setModuleFormation(modForOnRowSelect);
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("lieu.xhtml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 	
 }
