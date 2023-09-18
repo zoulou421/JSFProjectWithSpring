@@ -15,11 +15,17 @@
               
              
              <em><h:outputLabel value="#{lieuVO.moduleFormation.description}" /></em>
-         
+              <h4> Lieu Management</h4>
               <h:form >
-                 
+                 <p:growl id="growl" showDetail="true" sticky="false" />
+			     <h:outputLabel value="latitude"/><p:inputText value="#{lieuVO.lieu.latitude}"/><br />
+			     <h:outputLabel value="longitude"/><p:inputText value="#{lieuVO.lieu.longitude}"/><br />
+			     <h:outputLabel value="moduleFormationed By"/><p:inputText value="#{lieuVO.lieu.moduleFormationedBy}"/><br />
+			     <h:outputLabel value="moduleFormationed Date"/><p:inputText value="#{lieuVO.lieu.moduleFormationedDate}"/><br />
+			     
+			     <p:commandButton value="Save" actionListener="#{lieuVO.save}" update="growl" />
               </h:form>
-               <h4> Lieu Management</h4>
+               
              <h:link value="Contact Us" outcome="contactUs" />
              
            </ui:define>
