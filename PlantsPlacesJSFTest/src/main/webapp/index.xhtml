@@ -19,8 +19,17 @@
          
               <p>Entrer nom de votre module,et cliquer sur search</p>
               <h:form >
-                <p:autoComplete value="#{moduleFormation.lieu}" completeMethod="#{searchFormation.completeFormation}" />
-                <p:commandButton actionListener="search" value="Search" />
+                  <ui:remove>
+                    <p:autoComplete value="#{moduleFormation.lieu}" completeMethod="#{searchFormation.completeFormation}" />
+                  </ui:remove>
+                 
+                 <p:autoComplete value="#{moduleFormation.lieu}" completeMethod="#{searchFormation.collectionModuleFormation}" />
+                 
+                   <ui:remove>
+                   <p:commandButton actionListener="search" value="Search" />
+                   </ui:remove>
+                   
+                <p:commandButton value="Search" action="#{searchFormation.execute}" ajax="false" />
               </h:form>
                
              <p>
