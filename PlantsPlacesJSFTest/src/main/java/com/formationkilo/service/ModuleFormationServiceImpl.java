@@ -6,14 +6,19 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.formationkilo.dao.ILieuDAO;
 import com.formationkilo.dao.IModuleFormationDAO;
+import com.formationkilo.dto.Lieu;
 import com.formationkilo.dto.ModuleFormation;
 
 @Named
 public class ModuleFormationServiceImpl implements IModuleFormationService {
 
 	@Inject
-	IModuleFormationDAO moduleFormationDAOStub;
+	private IModuleFormationDAO moduleFormationDAOStub;
+	
+	@Inject
+	private ILieuDAO lieuDAO;
 	
 	public IModuleFormationDAO getModuleFormationDAOStub() {
 		return moduleFormationDAOStub;
@@ -68,6 +73,11 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		List<ModuleFormation> list_moduleFormation= moduleFormationDAOStub.fetchModuleFormations(moduleFormation);
 		return list_moduleFormation;
 		
+	}
+	
+	@Override
+	public void save(Lieu lieu)throws Exception{
+		lieuDAO.insert(lieu);
 	}
 
 }

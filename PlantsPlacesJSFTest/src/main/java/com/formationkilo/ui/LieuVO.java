@@ -8,16 +8,21 @@ import org.springframework.context.annotation.Scope;
 
 import com.formationkilo.dto.Lieu;
 import com.formationkilo.dto.ModuleFormation;
+import com.formationkilo.service.IModuleFormationService;
 
 @Named
 @ManagedBean
-@Scope("session")
+@Scope("request")
 public class LieuVO {
 
-	ModuleFormation moduleFormation;
+	private ModuleFormation moduleFormation;
 
 	@Inject
 	private Lieu lieu;
+	
+	@Inject
+	private IModuleFormationService moduleFormationService;
+	//private IModuleFormationService moduleFormationDAOStub;
 	
 	public Lieu getLieu() {
 		return lieu;
@@ -36,7 +41,17 @@ public class LieuVO {
 	}
 	
 	public String save() {
-		int i=1+1;
-		return "lieu saved";
+		//set the foreign key to the ModuleFormation id  before saving
+		lieu.setModuleFormationId(moduleFormation.getGuid());
+		//save
+		try {
+			moduleFormationService.save(lieu);
+			return "lieu saved";
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return "lieu failed to save";
+		}
+		
 	}
 }

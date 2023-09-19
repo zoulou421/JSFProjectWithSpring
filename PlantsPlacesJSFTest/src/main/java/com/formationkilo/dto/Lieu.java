@@ -14,6 +14,14 @@ public class Lieu implements Serializable{
 	private String longitude;
 	private String moduleFormationedBy;
 	private String moduleFormationedDate;
+	private String description;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public int getId() {
 		return id;
 	}

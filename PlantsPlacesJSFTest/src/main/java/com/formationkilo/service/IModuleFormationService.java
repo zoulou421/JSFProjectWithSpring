@@ -1,6 +1,7 @@
 package com.formationkilo.service;
 import java.util.List;
 
+import com.formationkilo.dto.Lieu;
 import com.formationkilo.dto.ModuleFormation;
 /**
  * IModuleFormationService includes all business
@@ -30,4 +31,6 @@ public interface IModuleFormationService {
  * @return
  */
 List<ModuleFormation> fetchModuleFormation(ModuleFormation moduleFormation);
+
+void save(Lieu lieu) throws Exception;
 }
