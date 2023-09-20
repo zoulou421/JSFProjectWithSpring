@@ -11,18 +11,20 @@
           <ui:define name="title">Java Green-app: Lieu</ui:define>
           <ui:define name="top">Java Green-app: Lieu</ui:define>
            <ui:define name="content">
-              <h1> Lieu</h1>
+              <h1 > Lieu</h1>
               
              
              <em><h:outputLabel value="#{lieuVO.moduleFormation.description}" /></em>
               <h4> Lieu Management</h4>
-              <h:form >
+              <h:form   >
+                
                  <p:growl id="growl" showDetail="true" sticky="false" />
+                 <div class="inputData">
 			     <h:outputLabel value="latitude"/><p:inputText value="#{lieuVO.lieu.latitude}"/><br />
 			     <h:outputLabel value="longitude"/><p:inputText value="#{lieuVO.lieu.longitude}"/><br />
-			     <h:outputLabel value="moduleFormationed By"/><p:inputText value="#{lieuVO.lieu.moduleFormationedBy}"/><br />
-			     <h:outputLabel value="moduleFormationed Date"/><p:inputText value="#{lieuVO.lieu.moduleFormationedDate}"/><br />
-			     
+			     <h:outputLabel value="moduleFormation By"/><p:inputText value="#{lieuVO.lieu.moduleFormationedBy}"/><br />
+			     <h:outputLabel value="moduleFormation Date"/><p:inputText value="#{lieuVO.lieu.moduleFormationedDate}"/><br />
+			     </div>
 			     <p:commandButton value="Save" actionListener="#{lieuVO.save}" update="growl" />
               </h:form>
                
