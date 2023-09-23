@@ -23,7 +23,7 @@
        <div class="card">
         <p:dataTable id="showSearchModF" var="modulef" value="#{searchFormation.collectionModuleFormation}" selectionMode="single" rowKey="#{modulef.guid}" >
         
-          <p:ajax event="rowSelect" listener="#{searchFormation.onRowSelect}" />
+          <p:ajax event="rowSelect" listener="#{searchFormation.onRowSelected}" />
           
           <p:column headerText="ID">
                 <h:outputText value="#{modulef.guid}" />

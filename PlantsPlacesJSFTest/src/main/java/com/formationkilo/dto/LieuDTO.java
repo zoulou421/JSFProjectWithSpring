@@ -4,39 +4,25 @@ import java.io.Serializable;
 
 import javax.inject.Named;
 
-
 @Named
-public class Lieu implements Serializable{
+public class LieuDTO implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int id;
-	private int moduleFormationId;
+	private int ForeignKeyModForId;
 	private String latitude;
 	private String longitude;
 	private String moduleFormationedBy;
-	private String moduleFormationedDate;
-	private String description;
-	
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getModuleFormationId() {
-		return moduleFormationId;
+	public int getForeignKeyModForId() {
+		return ForeignKeyModForId;
 	}
-	public void setModuleFormationId(int moduleFormationId) {
-		this.moduleFormationId = moduleFormationId;
+	public void setForeignKeyModForId(int foreignKeyModForId) {
+		ForeignKeyModForId = foreignKeyModForId;
 	}
 	public String getLatitude() {
 		return latitude;
@@ -62,6 +48,12 @@ public class Lieu implements Serializable{
 	public void setModuleFormationedDate(String moduleFormationedDate) {
 		this.moduleFormationedDate = moduleFormationedDate;
 	}
-	
-	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	private String moduleFormationedDate;
+	private String description;
 }

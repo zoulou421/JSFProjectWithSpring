@@ -43,7 +43,7 @@ public class TestModuleFormationService extends TestCase{
 	}
 
 	private void givenThatModuleFormationServiceIsPopulatedWithModuleFormationDAO() {
-	   moduleFormationService = new ModuleFormationServiceImpl();
+	//   moduleFormationService = new ModuleFormationServiceImpl();
 	   //a mock object is a shell of an object that will do whatever we want.
 	   IModuleFormationDAO moduleFormationDAO= mock(IModuleFormationDAO.class);
 	   // a known set of hardcoded moduleFormations

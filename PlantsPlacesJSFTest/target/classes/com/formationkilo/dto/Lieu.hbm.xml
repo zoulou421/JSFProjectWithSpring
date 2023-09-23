@@ -4,14 +4,14 @@
 
      
  <hibernate-mapping>
-    <class name="com.formationkilo.dto.Lieu" table="lieux" catalog="javagreenapp">
+    <class name="com.formationkilo.dto.LieuDTO" table="lieux" catalog="javagreenapp">
         <id name="id" type="java.lang.Integer">
             <column name="	LIEU_ID" />
             <generator class="identity" />
         </id>
                
-        <property  name="moduleFormationId" type="java.lang.Integer">
-            <column name="MODFOR_ID" />
+        <property  name="ForeignKeyModForId" type="java.lang.Integer">
+            <column name="MODFOR_ID" unique="false"  />
         </property>
  
         <property  name="latitude" type="string">
@@ -35,45 +35,6 @@
     </class>
 </hibernate-mapping>    
       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         

@@ -14,13 +14,14 @@ public class ModuleFormation implements Serializable {
 
   private static final long serialVersionUID = 1L;
   
+  private int guid;
+  
   private String name;
   private String type;
   private String langage;
   private String description;
   private String lieu;
-  private int guid;
-  
+ 
 
   public int getGuid() {
 	return guid;

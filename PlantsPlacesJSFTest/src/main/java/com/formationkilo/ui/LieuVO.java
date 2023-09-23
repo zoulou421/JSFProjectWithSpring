@@ -1,8 +1,13 @@
 package com.formationkilo.ui;
 
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.apache.log4j.Logger;
 
 import org.springframework.context.annotation.Scope;
 
@@ -15,14 +20,17 @@ import com.formationkilo.service.IModuleFormationService;
 @Scope("request")
 public class LieuVO {
 
+	final static Logger logger=Logger.getLogger(LieuVO.class);
+	
 	private ModuleFormation moduleFormation;
 
 	@Inject
 	private Lieu lieu;
 	
+	//@Inject
+	//private IModuleFormationService moduleFormationService;
 	@Inject
-	private IModuleFormationService moduleFormationService;
-	//private IModuleFormationService moduleFormationDAOStub;
+	private IModuleFormationService moduleFormationDAOStub;
 	
 	public Lieu getLieu() {
 		return lieu;
@@ -40,18 +48,39 @@ public class LieuVO {
 		this.moduleFormation = moduleFormation;
 	}
 	
-	public String save() {
-		//set the foreign key to the ModuleFormation id  before saving
-		lieu.setModuleFormationId(moduleFormation.getGuid());
+	public String record() {
+		logger.info("Entering the Execute method");	
+		 String returnValue="success";
+		   //get faces context
+		  FacesContext currentInstance=FacesContext.getCurrentInstance();
+		//lieu.setModuleFormationId(moduleFormation.getGuid());
 		//save
+		//set the foreign key to the ModuleFormation id  before saving
+		
+	
+			//save
 		try {
-			moduleFormationService.save(lieu);
+			//lieu.setModuleFormationId(moduleFormation.getGuid());
+			//moduleFormationService.save(lieu);
+			//moduleFormationDAOStub.save(lieu);
+			//moduleFormationDAOStub.save(lieu);
+			lieu.setModuleFormationId(moduleFormation.getGuid());
+			moduleFormationDAOStub.save(moduleFormation);
+			logger.info("Save successful"+lieu.toString());
+			
+			
+			FacesMessage fm= new FacesMessage(FacesMessage.SEVERITY_INFO, "saved", "Lieu saved");
+			//display the message
+			currentInstance.addMessage(null, fm);
 			return "lieu saved";
 		} catch (Exception e) {
-			
+			logger.error("Error while saving Lieu. Message:"+e.getMessage());
 			e.printStackTrace();
-			return "lieu failed to save";
+			returnValue="fail";
+			FacesMessage fm= new FacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to save", "Lieu is not saved");
+			//display the message
+			currentInstance.addMessage(null, fm);
 		}
-		
+		return returnValue;
 	}
 }

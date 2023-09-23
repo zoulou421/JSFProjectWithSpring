@@ -14,23 +14,21 @@
               <h1 > Lieu</h1>
               
              
-             <em><h:outputLabel value="#{lieuVO.moduleFormation.description}" /></em>
+             <em><h:outputLabel value="#{lieuUI.moduleFormation.guid}" /></em>
               <h4> Lieu Management</h4>
         
-              <h:form   >
+               
+               <h:form   >
                 
                  <p:growl id="growl" showDetail="true" sticky="false" />
                  <div class="inputData">
-			     <h:outputLabel value="latitude"/><p:inputText value="#{lieuVO.lieu.latitude}"/><br />
-			     <h:outputLabel value="longitude"/><p:inputText value="#{lieuVO.lieu.longitude}"/><br />
-			     <h:outputLabel value="moduleFormation By"/><p:inputText value="#{lieuVO.lieu.moduleFormationedBy}"/><br />
-			     <h:outputLabel value="moduleFormation Date"/><p:inputText value="#{lieuVO.lieu.moduleFormationedDate}"/><br />
+			     <h:outputLabel value="latitude"/><p:inputText value="#{lieuUI.lieuDTO.latitude}"/><br />
+			     <h:outputLabel value="longitude"/><p:inputText value="#{lieuUI.lieuDTO.longitude}"/><br />
+			     <h:outputLabel value="moduleFormation By"/><p:inputText value="#{lieuUI.lieuDTO.moduleFormationedBy}"/><br />
+			     <h:outputLabel value="moduleFormation Date"/><p:inputText value="#{lieuUI.lieuDTO.moduleFormationedDate}"/><br />
 			     </div>
-			      <p:commandButton  actionListener="#{lieuVO.record}" value="SAVE"  update="growl" />
+			      <p:commandButton  actionListener="#{lieuUI.saveLieu}" value="Save"  update="growl" />
               </h:form>
-               
-               
-               
              <h:link value="Contact Us" outcome="contactUs" />
              
              

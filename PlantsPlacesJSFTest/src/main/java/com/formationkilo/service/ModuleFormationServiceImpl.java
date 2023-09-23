@@ -6,10 +6,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.formationkilo.dao.ILieuDAO;
+import com.formationkilo.dao.ILieuHbDAO;
 import com.formationkilo.dao.IModuleFormationDAO;
-import com.formationkilo.dto.Lieu;
+import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
+
 
 @Named
 public class ModuleFormationServiceImpl implements IModuleFormationService {
@@ -17,8 +18,11 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	@Inject
 	private IModuleFormationDAO moduleFormationDAOStub;
 	
+	//@Inject
+	//private ILieuDAO lieuDAO;
+	
 	@Inject
-	private ILieuDAO lieuDAO;
+	private ILieuHbDAO lieuHbDAO;
 	
 	public IModuleFormationDAO getModuleFormationDAOStub() {
 		return moduleFormationDAOStub;
@@ -33,6 +37,8 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		this.allModuleFormations = allModuleFormations;
 	}
 	private List<ModuleFormation>allModuleFormations;
+	
+	
 	@Override
 	public List<ModuleFormation> filterModuleFormation(String filter) {
 		//List<ModuleFormation>allModuleFormations= moduleFormationDAO.fetchModuleFormations();
@@ -76,9 +82,11 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	}
 	
 	@Override
-	public void save(Lieu lieu)throws Exception{
-		lieuDAO.insert(lieu);
+	public void saveLieu(LieuDTO lieuDTO)throws Exception{
+		lieuHbDAO.insert(lieuDTO);
 	}
+	
+
 
 }
  
