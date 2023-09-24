@@ -39,6 +39,10 @@ void saveLieu(LieuDTO lieuDTO)throws Exception;
 
 List<ModuleFormation> filterModuleFormation(String filter);
 
+//Load a lieu for a speficique ModuleFormation
+//add picture step
+public void loadLieux(ModuleFormation moduleFormation);
+
 
 
 }

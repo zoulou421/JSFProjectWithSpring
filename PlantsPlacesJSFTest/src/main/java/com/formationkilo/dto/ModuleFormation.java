@@ -1,6 +1,7 @@
 package com.formationkilo.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
@@ -21,8 +22,15 @@ public class ModuleFormation implements Serializable {
   private String langage;
   private String description;
   private String lieu;
- 
-
+//ajout pour picture:accesseurs et mutateurs
+  private List<LieuDTO> list_lieuDTO;
+ public List<LieuDTO> getList_lieuDTO() {
+	return list_lieuDTO;
+}
+public void setList_lieuDTO(List<LieuDTO> list_lieuDTO) {
+	this.list_lieuDTO = list_lieuDTO;
+}
+//fin ajout
   public int getGuid() {
 	return guid;
   }

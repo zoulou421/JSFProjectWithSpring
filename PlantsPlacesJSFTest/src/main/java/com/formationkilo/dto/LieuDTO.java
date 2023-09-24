@@ -7,6 +7,10 @@ import javax.inject.Named;
 @Named
 public class LieuDTO implements Serializable {
 
+	/**
+	 * LieuDTO
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private int ForeignKeyModForId;
 	private String latitude;

@@ -19,8 +19,6 @@ public class LieuUI {
 	
 	@Inject
     private IModuleFormationService moduleFormationService;
-	//@Inject
-	//private IModuleFormationService moduleFormationDAOStub;
 
 	@Inject
 	private LieuDTO lieuDTO;
@@ -39,8 +37,17 @@ public class LieuUI {
 
 	public void setModuleFormation(ModuleFormation moduleFormation) {
 		this.moduleFormation = moduleFormation;
+		//add picture
+		loadLieux();
+		//fin add pic
 	}
-	
+	//add pic
+	private void loadLieux() {
+		// TODO Auto-generated method stub
+		moduleFormationService.loadLieux(moduleFormation);
+	}
+	//fin add pic
+
 	public String saveLieu() {
 		//set the foreign key to the ModuleFormation id  before saving
 		lieuDTO.setForeignKeyModForId(moduleFormation.getGuid());

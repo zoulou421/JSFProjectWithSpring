@@ -86,6 +86,15 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		lieuHbDAO.insert(lieuDTO);
 	}
 	
+	//Add a picture
+	@Override
+	public void loadLieux(ModuleFormation moduleFormation) {
+		// TODO Auto-generated method stub
+		List<LieuDTO> lieux = lieuHbDAO.fetchByModuleFormationId(moduleFormation.getGuid());
+		moduleFormation.setList_lieuDTO(lieux);
+		
+	}
+	
 
 
 }

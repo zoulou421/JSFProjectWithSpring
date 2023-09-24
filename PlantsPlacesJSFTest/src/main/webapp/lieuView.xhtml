@@ -16,9 +16,44 @@
              
              <em><h:outputLabel value="#{lieuUI.moduleFormation.guid}" /></em>
               <h4> Lieu Management</h4>
-        
-               
-               <h:form   >
+              
+               <p:dataTable id="showSearchLieu" var="lieuResult" value="#{lieuUI.moduleFormation.list_lieuDTO}" selectionMode="single" rowKey="#{lieuResult.id}" >
+                  <p:ajax event="rowSelect" listener="#{searchFormation.onRowSelected}" />
+                  
+                    <p:column headerText="ID">
+                      <h:outputText value="#{lieuResult.id}" />
+                    </p:column>
+              
+                    <p:column headerText="ForeignKeyModForId">
+                      <h:outputText value="#{lieuResult.foreignKeyModForId}" />
+                    </p:column>
+                    
+                     <p:column headerText="Latitude">
+                       <h:outputText value="#{lieuResult.latitude}" />
+                     </p:column>
+                     
+                     <p:column headerText="Longititude">
+                       <h:outputText value="#{lieuResult.longitude}" />
+                     </p:column>
+                     
+                     <p:column headerText="Nom">
+                       <h:outputText value="#{lieuResult.moduleFormationedBy}" />
+                     </p:column>
+                     
+                     <p:column headerText="Date Formation">
+                       <h:outputText value="#{lieuResult.moduleFormationedDate}" />
+                     </p:column>
+                     
+                     <p:column headerText="Description">
+                       <h:outputText value="#{lieuResult.description}" />
+                     </p:column>
+                     
+               </p:dataTable>
+             
+           
+          
+          
+                         <h:form   >
                 
                  <p:growl id="growl" showDetail="true" sticky="false" />
                  <div class="inputData">
@@ -29,10 +64,9 @@
 			     </div>
 			      <p:commandButton  actionListener="#{lieuUI.saveLieu}" value="Save"  update="growl" />
               </h:form>
-             <h:link value="Contact Us" outcome="contactUs" />
-             
-             
            </ui:define>
          </ui:composition>
+            
+      <h:link value="Contact Us" outcome="contactUs" />       
      </h:body>
 </html>

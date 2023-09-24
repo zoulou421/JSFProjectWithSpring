@@ -11,7 +11,7 @@
         </id>
                
         <property  name="ForeignKeyModForId" type="java.lang.Integer">
-            <column name="MODFOR_ID" unique="false"  />
+            <column name="MODFOR_ID"  />
         </property>
  
         <property  name="latitude" type="string">
