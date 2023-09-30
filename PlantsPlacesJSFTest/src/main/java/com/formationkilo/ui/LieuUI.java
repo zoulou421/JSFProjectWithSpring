@@ -1,13 +1,24 @@
 package com.formationkilo.ui;
 
+
+
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.event.SelectEvent;
+import org.primefaces.model.UploadedFile;
 import org.springframework.context.annotation.Scope;
 
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
+import com.formationkilo.dto.PhotoDTO;
 import com.formationkilo.service.IModuleFormationService;
 
 @Named
@@ -19,9 +30,12 @@ public class LieuUI {
 	
 	@Inject
     private IModuleFormationService moduleFormationService;
+	
 
 	@Inject
 	private LieuDTO lieuDTO;
+	
+	private UploadedFile file;
 	
 	public LieuDTO getLieuDTO() {
 		return lieuDTO;
@@ -60,4 +74,45 @@ public class LieuUI {
 		return "Lieu saved successfully!!!";
 	}
 	
+       public void onRowSelect(SelectEvent event) {
+		
+    	   LieuDTO LieuDTOOnRowSelect=((LieuDTO) event.getObject());
+		//push the selected plant into lieuDTO
+		//lieuVO.setModuleFormation(modForOnRowSelect);
+    	   setLieuDTO(LieuDTOOnRowSelect);
+		
+    }
+       
+      
+
+       
+    public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
+	}
+
+	public void upload() {
+           if (file != null) {
+        	   try {
+				InputStream inputStream = file.getInputstream();
+				PhotoDTO photoDTO = new PhotoDTO();
+				
+				//place a photo and a photo metadata to our business logic layer.
+				moduleFormationService.savePhoto(photoDTO, inputStream);
+				
+				FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
+	            FacesContext.getCurrentInstance().addMessage(null, message);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				FacesMessage message = new FacesMessage("There is a problem, your file is not uploaded.");
+	            FacesContext.getCurrentInstance().addMessage(null, message);
+			  }
+               
+           }
+       }
 }
+

@@ -18,8 +18,8 @@
               <h4> Lieu Management</h4>
               
                <p:dataTable id="showSearchLieu" var="lieuResult" value="#{lieuUI.moduleFormation.list_lieuDTO}" selectionMode="single" rowKey="#{lieuResult.id}" >
-                  <p:ajax event="rowSelect" listener="#{searchFormation.onRowSelected}" />
-                  
+                  <p:ajax event="rowSelect" listener="#{lieuUI.onRowSelect}" />
+                  searchFormation.onRowSelected
                     <p:column headerText="ID">
                       <h:outputText value="#{lieuResult.id}" />
                     </p:column>
@@ -53,7 +53,7 @@
            
           
           
-                         <h:form   >
+                 <h:form   >
                 
                  <p:growl id="growl" showDetail="true" sticky="false" />
                  <div class="inputData">
@@ -64,9 +64,19 @@
 			     </div>
 			      <p:commandButton  actionListener="#{lieuUI.saveLieu}" value="Save"  update="growl" />
               </h:form>
+       
+       
+       <h:form enctype="multipart/form-data">
+        <p:fileUpload value="#{lieuUI.file}" mode="simple" skinSimple="true"/>
+
+        <p:commandButton value="Submit" ajax="false" action="#{lieuUI.upload}" />
+    </h:form>
+    
+    
            </ui:define>
          </ui:composition>
             
-      <h:link value="Contact Us" outcome="contactUs" />       
+      <h:link value="Contact Us" outcome="contactUs" />
+       
      </h:body>
 </html>

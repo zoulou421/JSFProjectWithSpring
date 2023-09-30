@@ -1,15 +1,23 @@
 package com.formationkilo.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.formationkilo.dao.IFileDAO;
 import com.formationkilo.dao.ILieuHbDAO;
 import com.formationkilo.dao.IModuleFormationDAO;
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
+import com.formationkilo.dto.Photo;
+import com.formationkilo.dto.PhotoDTO;
 
 
 @Named
@@ -23,6 +31,10 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	
 	@Inject
 	private ILieuHbDAO lieuHbDAO;
+	
+	@Inject
+	private IFileDAO fileDAO;
+	
 	
 	public IModuleFormationDAO getModuleFormationDAOStub() {
 		return moduleFormationDAOStub;
@@ -95,7 +107,13 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		
 	}
 	
-
+	public void savePhoto(PhotoDTO photoDTO, InputStream inputStream) throws IOException{
+		File directory= new File("/pictures_appjsf");
+		File file= new File(directory,"p1_n.jpg");
+		fileDAO.save(inputStream, file);
+	}
+	
+	
 
 }
  

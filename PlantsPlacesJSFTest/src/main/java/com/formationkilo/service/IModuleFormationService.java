@@ -1,8 +1,12 @@
 package com.formationkilo.service;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
+import com.formationkilo.dto.Photo;
+import com.formationkilo.dto.PhotoDTO;
 
 
 /**
@@ -42,6 +46,8 @@ List<ModuleFormation> filterModuleFormation(String filter);
 //Load a lieu for a speficique ModuleFormation
 //add picture step
 public void loadLieux(ModuleFormation moduleFormation);
+
+public void savePhoto(PhotoDTO photoDTO, InputStream inputStream) throws IOException;
 
 
 
