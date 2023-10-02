@@ -64,14 +64,15 @@
 			     </div>
 			      <p:commandButton  actionListener="#{lieuUI.saveLieu}" value="Save"  update="growl" />
               </h:form>
-       
-       
-       <h:form enctype="multipart/form-data">
-        <p:fileUpload value="#{lieuUI.file}" mode="simple" skinSimple="true"/>
-
-        <p:commandButton value="Submit" ajax="false" action="#{lieuUI.upload}" />
-    </h:form>
-    
+            <img src="images/jira.jpg" />
+       <p:fieldset legend="Ajouter une photo au lieu">
+          <h:form enctype="multipart/form-data">
+           <p:outputLabel value="Date Taken" /><p:calendar id="dateTaken" value="#{lieuUI.photoDTO.dateTaken}"></p:calendar><br />
+           <p:outputLabel value="Contributor" /><p:inputText value="#{lieuUI.photoDTO.contributor}"></p:inputText><br />
+           <p:fileUpload value="#{lieuUI.file}" mode="simple" skinSimple="true"/>
+           <p:commandButton value="Uploader" ajax="false" action="#{lieuUI.upload}" />
+          </h:form>
+       </p:fieldset>
     
            </ui:define>
          </ui:composition>

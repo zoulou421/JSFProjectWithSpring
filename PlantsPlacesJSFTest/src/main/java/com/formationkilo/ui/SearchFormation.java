@@ -28,8 +28,8 @@ public class SearchFormation {
 	
 	private List<ModuleFormation> collectionModuleFormation;
 	
-	@Inject
-	private LieuVO lieuVO;
+	//@Inject
+	//private LieuVO lieuVO;
 	
 	@Inject
 	private LieuUI lieuUI;
@@ -88,18 +88,20 @@ public class SearchFormation {
 		
 	}
 	
-	public void onRowSelect(SelectEvent event) {
+	//public void onRowSelect(SelectEvent event) {
 		
-		ModuleFormation modForOnRowSelect=((ModuleFormation) event.getObject());
+		//ModuleFormation modForOnRowSelect=((ModuleFormation) event.getObject());
 		//push the selected plant into LieuVO
-		lieuVO.setModuleFormation(modForOnRowSelect);
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("lieu.xhtml");
-		} catch (IOException e) {
+		
+		//lieuVO.setModuleFormation(modForOnRowSelect);
+		//lieuUI.setModuleFormation(modForOnRowSelect);
+		//try {
+		//	FacesContext.getCurrentInstance().getExternalContext().redirect("lieuView.xhtml");
+		//} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
+		//	e.printStackTrace();
+		//}
+    //}
 	//version 2
 	public void  onRowSelected(SelectEvent event)  {
 		ModuleFormation modForOnRowSelect=((ModuleFormation) event.getObject());

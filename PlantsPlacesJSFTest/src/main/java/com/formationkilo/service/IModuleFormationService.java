@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
-import com.formationkilo.dto.Photo;
+
 import com.formationkilo.dto.PhotoDTO;
 
 

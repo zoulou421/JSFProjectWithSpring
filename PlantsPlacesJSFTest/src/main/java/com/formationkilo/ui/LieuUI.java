@@ -29,6 +29,9 @@ public class LieuUI {
 	private ModuleFormation moduleFormation;
 	
 	@Inject
+	private PhotoDTO photoDTO;
+	
+	@Inject
     private IModuleFormationService moduleFormationService;
 	
 
@@ -47,6 +50,16 @@ public class LieuUI {
 
 	public ModuleFormation getModuleFormation() {
 		return moduleFormation;
+	}
+
+	
+	
+	public PhotoDTO getPhotoDTO() {
+		return photoDTO;
+	}
+
+	public void setPhotoDTO(PhotoDTO photoDTO) {
+		this.photoDTO = photoDTO;
 	}
 
 	public void setModuleFormation(ModuleFormation moduleFormation) {
@@ -95,11 +108,15 @@ public class LieuUI {
 	}
 
 	public void upload() {
-           if (file != null) {
+		 if(lieuDTO.getId()==0) {
+  		   FacesMessage message = new FacesMessage("Vous n avez pas encore selectionné un lieu. SVP veuillez selectionner avec de mettre une image.");
+	               FacesContext.getCurrentInstance().addMessage(null, message);
+  	     }else if (file != null) {
         	   try {
 				InputStream inputStream = file.getInputstream();
-				PhotoDTO photoDTO = new PhotoDTO();
-				
+				//PhotoDTO photoDTO = new PhotoDTO();
+				//set the lieuDTO  id
+				photoDTO.setForeignKeyLieuId(lieuDTO.getId());
 				//place a photo and a photo metadata to our business logic layer.
 				moduleFormationService.savePhoto(photoDTO, inputStream);
 				

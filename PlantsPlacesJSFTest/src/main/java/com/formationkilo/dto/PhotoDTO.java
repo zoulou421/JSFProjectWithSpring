@@ -1,10 +1,15 @@
 package com.formationkilo.dto;
 
+import java.util.Date;
+
+import javax.inject.Named;
+
+@Named
 public class PhotoDTO {
 	private int id;
 	private int foreignKeyLieuId;
 	private String uri;
-	private String dateTaken;
+	private Date dateTaken;
 	private String contributor;
 	public int getId() {
 		return id;
@@ -24,10 +29,10 @@ public class PhotoDTO {
 	public void setUri(String uri) {
 		this.uri = uri;
 	}
-	public String getDateTaken() {
+	public Date getDateTaken() {
 		return dateTaken;
 	}
-	public void setDateTaken(String dateTaken) {
+	public void setDateTaken(Date dateTaken) {
 		this.dateTaken = dateTaken;
 	}
 	public String getContributor() {

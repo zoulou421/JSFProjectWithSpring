@@ -16,7 +16,6 @@ import com.formationkilo.dao.ILieuHbDAO;
 import com.formationkilo.dao.IModuleFormationDAO;
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
-import com.formationkilo.dto.Photo;
 import com.formationkilo.dto.PhotoDTO;
 
 
@@ -35,6 +34,8 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	@Inject
 	private IFileDAO fileDAO;
 	
+	@Inject
+	private PhotoDTO photoDTO;
 	
 	public IModuleFormationDAO getModuleFormationDAOStub() {
 		return moduleFormationDAOStub;
@@ -108,9 +109,28 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	}
 	
 	public void savePhoto(PhotoDTO photoDTO, InputStream inputStream) throws IOException{
+		//File directory= new File("/pictures_appjsf");/PlantsPlacesJSFTest/src/main/webapp/images
+		//C:\Users\HP\git\repository3\PlantsPlacesJSFTest\src\main\webapp\images
 		File directory= new File("/pictures_appjsf");
-		File file= new File(directory,"p1_n.jpg");
+		//File file= new File(directory,"p1_n.jpg");
+		String uniqueImageName= getUniqueImageName();
+		File file= new File(directory,uniqueImageName);
 		fileDAO.save(inputStream, file);
+		
+		//photoDTO.setUri(file.toString());
+		photoDTO.setUri(uniqueImageName);
+		
+		//eventually save photo to the database
+	}
+	
+	private String getUniqueImageName() {
+		// TODO Auto-generated method stub
+		String imagePrefix="greenApp";
+		String imagePreSuffix=".jpg";
+		String middle="";
+		SimpleDateFormat sdf=new SimpleDateFormat("yyMMddHHmmss");
+		middle=sdf.format(new Date());
+		return imagePrefix + middle + imagePreSuffix;
 	}
 	
 	
