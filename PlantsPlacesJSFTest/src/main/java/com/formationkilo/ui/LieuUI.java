@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.hibernate.Session;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.context.annotation.Scope;
@@ -75,11 +76,12 @@ public class LieuUI {
 	}
 	//fin add pic
 
-	public String saveLieu() {
+	public String saveLieu(Session session) {
+		
 		//set the foreign key to the ModuleFormation id  before saving
 		lieuDTO.setForeignKeyModForId(moduleFormation.getGuid());
 		try {
-			moduleFormationService.saveLieu(lieuDTO);
+			moduleFormationService.saveLieu(session, lieuDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -107,7 +109,7 @@ public class LieuUI {
 		this.file = file;
 	}
 
-	public void upload() {
+	public void upload() throws Exception {
 		 if(lieuDTO.getId()==0) {
   		   FacesMessage message = new FacesMessage("Vous n avez pas encore selectionné un lieu. SVP veuillez selectionner avec de mettre une image.");
 	               FacesContext.getCurrentInstance().addMessage(null, message);
@@ -118,7 +120,7 @@ public class LieuUI {
 				//set the lieuDTO  id
 				photoDTO.setForeignKeyLieuId(lieuDTO.getId());
 				//place a photo and a photo metadata to our business logic layer.
-				moduleFormationService.savePhoto(photoDTO, inputStream);
+				moduleFormationService.savePhoto(photoDTO, inputStream) ;
 				
 				FacesMessage message = new FacesMessage("Successful", file.getFileName() + " is uploaded.");
 	            FacesContext.getCurrentInstance().addMessage(null, message);

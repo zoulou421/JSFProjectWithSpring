@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Named;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
 
 import com.formationkilo.dto.ModuleFormation;
 
@@ -13,7 +14,8 @@ import com.formationkilo.dto.ModuleFormation;
 public class ModuleFormationDAOStub implements IModuleFormationDAO {
 
 	static final Logger log = Logger.getLogger(ModuleFormationDAOStub.class);
-	@Override
+	
+	//@Override
 	public List<ModuleFormation> fetchModuleFormations() {
 		List<ModuleFormation>allModuleFormations=new ArrayList<ModuleFormation>();
 		
@@ -67,12 +69,13 @@ public class ModuleFormationDAOStub implements IModuleFormationDAO {
 		return allModuleFormations;
 	}
 
-	@Override
+	/* ref MaClasseCentrale
+	 @Override
 	public void insert(ModuleFormation mf) throws Exception {
 		// TODO Auto-generated method stub
 		log.warn("Inserting into stub; this is NOT persist the item");
 		
-	}
+	}*/
 
 	@Override
 	public void update(ModuleFormation mf) throws Exception {
@@ -90,6 +93,18 @@ public class ModuleFormationDAOStub implements IModuleFormationDAO {
 	public List<ModuleFormation> fetchModuleFormations(ModuleFormation moduleFormation) {
 		// TODO Auto-generated method stub
 		return new ArrayList<ModuleFormation>();
+	}
+
+	@Override
+	public void insert(Session session, ModuleFormation mf) throws Exception {
+		// TODO Auto-generated method stub
+		log.warn("Inserting into stub; this is NOT persist the item");
+	}
+
+	@Override
+	public void save(ModuleFormation mf) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -14,9 +14,10 @@ import com.formationkilo.dto.Lieu;
  * @author Bonevy BEBY
  *
  */
-@Named
+//@Named
 //public class LieuHbmDAO implements ILieuDAO {
-public class LieuHbmDAO extends ModuleFormationHbmDAO implements ILieuDAO {
+/*public class LieuHbmDAO extends ModuleFormationHbmDAO implements ILieuDAO {
+ 
 // SpecimenHbmDAO extends PlantPlacesHbmDAO<Specimen> implements ISpecimenDAO
 	public void insert(Lieu lieu) throws Exception{
 		
@@ -41,4 +42,4 @@ public class LieuHbmDAO extends ModuleFormationHbmDAO implements ILieuDAO {
 		
 		return list_lieu;
 	}
-}
+}*/

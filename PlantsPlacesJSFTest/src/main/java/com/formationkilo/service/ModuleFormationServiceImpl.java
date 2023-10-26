@@ -11,9 +11,12 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.hibernate.Session;
+
 import com.formationkilo.dao.IFileDAO;
 import com.formationkilo.dao.ILieuHbDAO;
 import com.formationkilo.dao.IModuleFormationDAO;
+import com.formationkilo.dao.IPhotoDAO;
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
 import com.formationkilo.dto.PhotoDTO;
@@ -36,6 +39,10 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 	
 	@Inject
 	private PhotoDTO photoDTO;
+	
+	
+	@Inject
+	private IPhotoDAO photoDAO;
 	
 	public IModuleFormationDAO getModuleFormationDAOStub() {
 		return moduleFormationDAOStub;
@@ -73,12 +80,14 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		return returnModuleFormations;
 	}
 	
-	public void save(ModuleFormation moduleFormation) throws Exception {
+	public void insert(Session session,ModuleFormation moduleFormation) throws Exception {
 		
 		   if(moduleFormation.getType()==null || moduleFormation.getType().isEmpty()) {
 			   throw new Exception("Type est requis");
 		   }
-		   moduleFormationDAOStub.insert(moduleFormation);
+		  // moduleFormationDAOStub.insert(moduleFormation);
+		   moduleFormationDAOStub.insert(session, moduleFormation);
+		//   moduleFormationDAOStub.save( moduleFormation);
 		
 	}
 	/**
@@ -94,9 +103,8 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		
 	}
 	
-	@Override
-	public void saveLieu(LieuDTO lieuDTO)throws Exception{
-		lieuHbDAO.insert(lieuDTO);
+	public void saveLieu(Session session,LieuDTO lieuDTO)throws Exception{
+		lieuHbDAO.insert(session, lieuDTO);
 	}
 	
 	//Add a picture
@@ -108,10 +116,10 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		
 	}
 	
-	public void savePhoto(PhotoDTO photoDTO, InputStream inputStream) throws IOException{
+	public void savePhoto(PhotoDTO photoDTO, InputStream inputStream) throws Exception{
 		//File directory= new File("/pictures_appjsf");/PlantsPlacesJSFTest/src/main/webapp/images
 		//C:\Users\HP\git\repository3\PlantsPlacesJSFTest\src\main\webapp\images
-		File directory= new File("/pictures_appjsf");
+		File directory= new File("C:\\Users\\HP\\git\\repository3\\PlantsPlacesJSFTest\\src\\main\\webapp\\images");
 		//File file= new File(directory,"p1_n.jpg");
 		String uniqueImageName= getUniqueImageName();
 		File file= new File(directory,uniqueImageName);
@@ -121,6 +129,8 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		photoDTO.setUri(uniqueImageName);
 		
 		//eventually save photo to the database
+		photoDAO.save(photoDTO);
+		
 	}
 	
 	private String getUniqueImageName() {
@@ -132,6 +142,12 @@ public class ModuleFormationServiceImpl implements IModuleFormationService {
 		middle=sdf.format(new Date());
 		return imagePrefix + middle + imagePreSuffix;
 	}
+	@Override
+	public void save(ModuleFormation moduleFormation) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 

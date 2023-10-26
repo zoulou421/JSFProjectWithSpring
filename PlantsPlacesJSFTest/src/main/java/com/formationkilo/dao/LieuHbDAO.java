@@ -13,10 +13,10 @@ import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
 
 @Named
-public class LieuHbDAO implements ILieuHbDAO {
+public class LieuHbDAO extends MaClasseCentrale<LieuDTO> implements ILieuHbDAO {
 
-@Override
-public void insert(LieuDTO lieuDTO) throws Exception{
+//@Override
+/*public void insert(LieuDTO lieuDTO) throws Exception{
 		
 		// Save the Lieu to the database
 		
@@ -24,7 +24,11 @@ public void insert(LieuDTO lieuDTO) throws Exception{
 				session.beginTransaction();
 				session.save(lieuDTO);
 				session.getTransaction().commit();
-	}
+				
+			//	ref MaClasseCentrale
+	}*/
+
+
 
 //TO  ADD PICTURE
 @Override
@@ -38,5 +42,19 @@ public List<LieuDTO>fetchByModuleFormationId(int idModuleFormation){
     return list_lieu;
 	
 }
+
+/*@Override
+public void insert(LieuDTO lieuDTO) throws Exception {
+	// TODO Auto-generated method stub
+	
+}*/
+
+@Override
+public void insert(Session session, LieuDTO dto) throws Exception {
+	session.save(dto);
+	
+}
+
+
 
 }

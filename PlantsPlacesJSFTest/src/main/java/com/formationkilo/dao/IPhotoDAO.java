@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.PhotoDTO;
 
-
 public interface IPhotoDAO {
 
 

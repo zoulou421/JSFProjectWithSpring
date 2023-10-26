@@ -3,10 +3,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import org.hibernate.Session;
+
 import com.formationkilo.dto.LieuDTO;
 import com.formationkilo.dto.ModuleFormation;
-
 import com.formationkilo.dto.PhotoDTO;
+
+
 
 
 /**
@@ -39,7 +42,7 @@ List<ModuleFormation> fetchModuleFormation(ModuleFormation moduleFormation);
 
 
 
-void saveLieu(LieuDTO lieuDTO)throws Exception;
+void saveLieu(Session session, LieuDTO lieuDTO)throws Exception;
 
 List<ModuleFormation> filterModuleFormation(String filter);
 
@@ -47,7 +50,7 @@ List<ModuleFormation> filterModuleFormation(String filter);
 //add picture step
 public void loadLieux(ModuleFormation moduleFormation);
 
-public void savePhoto(PhotoDTO photoDTO, InputStream inputStream) throws IOException;
+public void savePhoto(PhotoDTO photoDTO, InputStream inputStream) throws  Exception;
 
 
 

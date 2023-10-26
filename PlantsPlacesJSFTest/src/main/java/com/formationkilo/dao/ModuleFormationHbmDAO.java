@@ -1,6 +1,5 @@
 package com.formationkilo.dao;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -9,7 +8,7 @@ import org.hibernate.Session;
 
 import com.formationkilo.dto.ModuleFormation;
 
-public class ModuleFormationHbmDAO implements IModuleFormationDAO{
+public class ModuleFormationHbmDAO extends MaClasseCentrale<ModuleFormation> implements IModuleFormationDAO{
 
 	@Override
 	public List<ModuleFormation> fetchModuleFormations() {
@@ -36,15 +35,21 @@ public class ModuleFormationHbmDAO implements IModuleFormationDAO{
 	}
 	
 	@Override
-	public void insert(ModuleFormation mf) throws Exception {
+	/*public void insert(ModuleFormation mf) throws Exception {
 		// Save the ModuleFormation to the database
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		session.save(mf);
 		session.getTransaction().commit();
+		// ref MaClasseCentrale
+	}*/
+	
+	public void insert(Session session, ModuleFormation mf) throws Exception {
+		session.save(mf);
 		
 	}
+	
 
 	@Override
 	public void update(ModuleFormation mf) throws Exception {
@@ -57,5 +62,7 @@ public class ModuleFormationHbmDAO implements IModuleFormationDAO{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
